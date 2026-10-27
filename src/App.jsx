@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 
+
 const reels = [
-  { id: "DewWA4zThDg" },
-  { id: "DejSSAxTaPB" },
-  { id: "DeOuQGYT1WF" },
-  { id: "DeMOafOzjq-" },
-  { id: "DeHSkisTH_m" },
-  { id: "DdvrddhTRcI" },
+  { id: "DdbdcfXx_mx" },
+  { id: "Dc8i6hfRtQs" },
+  { id: "DctGpU-RFgU" },
+  { id: "De_2muTRNBL" },
+  { id: "Dd6WI3bxALo" },
+  { id: "Ddyna9NxLKY" },
+  { id: "Ddq6CT4xdQF" },
+  { id: "DdMDqLYRpL6" },
 ];
+
 
 
 const reviews = [
@@ -116,14 +120,7 @@ export default function App() {
   const videoMaxIndex = Math.max(0, reels.length - videoSlidesToShow);
   const reviewMaxIndex = Math.max(0, reviews.length - reviewSlidesToShow);
 
-  // --- Auto-Slide Videos ---
-  useEffect(() => {
-    if (videoPaused) return;
-    const timer = setInterval(() => {
-      setVideoIndex((current) => (current >= videoMaxIndex ? 0 : current + 1));
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [videoPaused, videoMaxIndex]);
+
 
   // --- Auto-Slide Reviews ---
   useEffect(() => {
@@ -136,239 +133,598 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#FAF6F0] text-[#241E22] antialiased">
-      {/* HEADER */}
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 h-22 px-6 md:px-12 flex justify-between items-center transition-all duration-300 ${
-          isScrolled
-            ? "bg-white shadow-md border-b-0 text-[#2A1625]"
-            : "bg-transparent border-b border-white/10 text-white"
-        }`}
+  
+{/* HEADER */}
+<header
+  className={`fixed top-0 left-0 right-0 z-50 h-20 px-5 md:px-12
+  flex justify-between items-center transition-all duration-300 ${
+    isScrolled
+      ? "bg-white shadow-md text-[#2a16254e]"
+      : "bg-transparent text-white"
+  }`}
+>
+  <div className="relative h-full w-40 md:w-48 shrink-0">
+    <img
+      src={isScrolled ? "/colorlogo.png" : "/whitecolor.png"}
+      alt="Heal and Manifest Logo"
+      className="absolute left-0 top-1/2 -translate-y-1/2
+      w-[250px] md:w-[300px] h-auto max-w-none
+      object-contain object-left transition-all duration-300"
+    />
+  </div>
+
+  <div className="hidden md:flex items-center gap-5 text-sm font-medium">
+    <span
+      className={
+        isScrolled
+          ? "text-[#71656D]"
+          : "text-white/90 tracking-wide"
+      }
+    >
+      ❤️ Live Relationship Webinar
+    </span>
+
+    <a
+      href="#register"
+      className="px-6 py-3 rounded-full bg-[#9E4770]
+      text-white font-semibold hover:bg-[#803458]
+      transition-all duration-300 shadow-lg"
+    >
+      Join Now – ₹99
+    </a>
+  </div>
+</header>
+
+
+
+{/* HERO SECTION */}
+<section
+  className="relative isolate w-full min-h-screen
+    flex items-center overflow-hidden
+    bg-[#080504] pt-24 pb-10
+    sm:pt-28 md:pt-24 md:pb-12"
+>
+  {/* BACKGROUND IMAGE */}
+  <div className="absolute inset-0 -z-20 overflow-hidden">
+
+    {/* Desktop Background */}
+    <img
+      src="/dektopbaner.png"
+      alt=""
+      aria-hidden="true"
+      className="hidden md:block absolute inset-0
+        w-full h-full object-contain object-right"
+    />
+
+    {/* Mobile Background */}
+    <img
+      src="/mobilebaner.png"
+      alt=""
+      aria-hidden="true"
+      className="md:hidden absolute inset-0
+        w-full h-full object-cover object-center"
+    />
+
+  </div>
+
+
+  {/* DESKTOP OVERLAY */}
+  <div
+    className="absolute inset-0 -z-10
+      bg-gradient-to-r
+      from-black/95 via-black/65 to-black/10
+      md:block hidden"
+  />
+
+  {/* MOBILE OVERLAY */}
+  <div
+    className="absolute inset-0 -z-10
+      bg-gradient-to-b
+      from-black/50 via-black/65 to-black/95
+      md:hidden"
+  />
+
+
+  {/* HERO CONTENT WRAPPER */}
+  <div
+    className="relative z-10 w-full
+      max-w-[1440px] mx-auto
+      px-4 sm:px-8 lg:px-12 xl:px-16"
+  >
+    <div
+      className="w-full max-w-[760px]
+        text-left space-y-5
+        sm:space-y-6 md:space-y-7
+        py-5 md:py-8"
+    >
+
+      {/* CATEGORY */}
+      <div
+        className="inline-flex max-w-full
+          items-center gap-2
+          px-3 sm:px-4 py-2
+          rounded-full
+          bg-white/10 border border-white/20
+          backdrop-blur-md"
       >
-        <div className="relative h-full w-40 shrink-0">
-          <img
-            src={isScrolled ? "/colorlogo.png" : "/whitelogo.png"}
-            alt="Heal and Manifest Logo"
-            className="absolute left-0 top-1/2 -translate-y-1/2 w-[230px] h-[85px] max-w-none object-contain object-left transition-opacity duration-300"
-          />
+        <span
+          className="w-2 h-2 rounded-full
+            bg-[#F3C973] shrink-0"
+        />
+
+        <span
+          className="text-[9px] sm:text-xs
+            font-semibold tracking-[0.12em]
+            sm:tracking-[0.16em]
+            uppercase text-white"
+        >
+          Relationship & Emotional Intelligence
+        </span>
+      </div>
+
+
+      {/* WEBINAR LABEL */}
+      <div
+        className="flex items-center gap-2
+          text-[#F3C973]
+          text-sm sm:text-base font-semibold"
+      >
+        <span className="text-xl">❤️</span>
+        <span>LIVE ONLINE WEBINAR</span>
+      </div>
+
+
+      {/* MAIN HEADING */}
+      <h1
+        className="text-[36px] leading-[1.12]
+          sm:text-5xl
+          md:text-5xl
+          lg:text-6xl
+          xl:text-7xl
+          font-bold text-white tracking-tight"
+      >
+        Why Do We Hurt
+
+        <span
+          className="block text-[#F3C973]
+            font-medium mt-2"
+        >
+          the People We Love?
+        </span>
+      </h1>
+
+
+      {/* DESCRIPTION */}
+      <p
+        className="text-sm sm:text-base
+          md:text-lg lg:text-xl
+          text-white/90 leading-relaxed
+          max-w-[650px] font-light"
+      >
+        Do the same arguments keep happening?
+        Do emotions take over before you can explain
+        yourself? Discover why it happens and learn
+        how to communicate better, understand your
+        emotions, and build healthier relationships.
+      </p>
+
+
+      {/* BENEFITS */}
+      <div
+        className="grid grid-cols-1
+          sm:grid-cols-2
+          gap-x-6 gap-y-3
+          pt-1 max-w-[650px]
+          text-sm sm:text-base
+          text-white/95"
+      >
+
+        {[
+          "Understand Your Emotions",
+          "Improve Communication",
+          "Break Repeating Patterns",
+          "Build Stronger Connections",
+        ].map((benefit) => (
+          <div
+            key={benefit}
+            className="flex items-center gap-3 min-w-0"
+          >
+            <span
+              className="flex items-center justify-center
+                w-7 h-7 rounded-full
+                bg-[#F3C973]/20
+                text-[#F3C973] shrink-0"
+            >
+              ✓
+            </span>
+
+            <span>{benefit}</span>
+          </div>
+        ))}
+
+      </div>
+
+
+      {/* SPECIAL OFFER CARD */}
+      <div
+        className="relative w-full max-w-[440px]
+          mt-5 rounded-2xl
+          border border-[#F3C973]/50
+          bg-black/55 backdrop-blur-md
+          p-4 sm:p-5 overflow-hidden"
+      >
+        {/* OFFER BADGE */}
+        <div
+          className="absolute top-0 right-0
+            bg-[#F3C973] text-[#2A1625]
+            text-[10px] sm:text-xs
+            font-extrabold px-3 sm:px-4 py-2
+            rounded-bl-xl tracking-wide"
+        >
+          SPECIAL OFFER
         </div>
 
-        <div className="hidden md:flex items-center gap-5 text-sm font-medium">
+        <p className="text-white/80 text-xs sm:text-sm mb-2 pr-24">
+          Get this valuable webinar at an exclusive price
+        </p>
+
+        <div className="flex items-center gap-3 flex-wrap">
           <span
-            className={
-              isScrolled ? "text-[#71656D]" : "text-white/90 tracking-wide"
-            }
+            className="text-white/60
+              line-through text-lg sm:text-2xl"
           >
-           
-
-
-❤️ Live Relationship Webinar
+            ₹3,000
           </span>
-          <a
-            href="#register"
-            className={`px-6 py-2 rounded-full transition-all font-semibold ${
-              isScrolled
-                ? "bg-[#9E4770] text-white hover:bg-[#803458]"
-                : "bg-transparent text-white hover:bg-white/10 border border-white/70"
-            }`}
+
+          <span
+            className="text-[#F3C973]
+              text-4xl sm:text-5xl font-extrabold"
           >
-Join the Webinar – ₹99          </a>
-        </div>
-      </header>
+            ₹99
+          </span>
 
-      {/* SECTION 1: FULL WIDTH LEFT-ALIGNED HERO BANNER */}
-      <section className="relative min-h-[90vh] md:min-h-screen flex flex-col justify-end md:justify-center pt-24 pb-8 md:pb-16 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/mobilebaner.png"
-            alt="Mobile Background"
-            className="w-full h-full object-cover md:hidden"
-          />
-          <img
-            src="/dektopbaner.png"
-            alt="Desktop Background"
-            className="w-full h-full object-cover hidden md:block"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent md:bg-gradient-to-r md:from-black/90 md:via-black/50 md:to-transparent"></div>
+          <span className="text-white text-sm font-semibold">
+            ONLY
+          </span>
         </div>
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-12 flex flex-col items-start mt-auto md:mt-0">
-          <div className="w-full max-w-2xl text-left space-y-5 md:space-y-6 bg-black/20 backdrop-blur-xl border border-white/10 p-6 md:p-0 rounded-3xl md:bg-transparent md:backdrop-blur-none md:border-none md:rounded-none shadow-2xl md:shadow-none">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase bg-transparent text-white border border-white/30 backdrop-blur-md">
-              <span className="h-2 w-2 rounded-full bg-[#F3C973]"></span>
-               Relationship & Emotional Intelligence
-            </span>
+        <p className="text-green-300 text-xs sm:text-sm font-semibold mt-2">
+          Save ₹2,901 on your webinar registration!
+        </p>
+      </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight">
-              Why Do We Hurt <br />
-              <span className="text-[#F3C973] font-medium">  the People We Love?</span>
-            </h1>
 
-            <p className="text-base md:text-xl text-white/80 leading-relaxed font-light">
-               Discover why the same arguments repeat, emotions take over, and
-  misunderstandings create distance. Understand your emotional triggers
-  and build healthier, more meaningful relationships
+      {/* CTA BUTTON */}
+      <div className="pt-1 w-full sm:w-auto">
+
+        <a
+          href="#register"
+          className="group inline-flex items-center
+            justify-center gap-3
+            w-full sm:w-auto
+            px-6 sm:px-8 lg:px-10
+            py-4 bg-[#9E4770]
+            hover:bg-[#803458]
+            text-white font-bold
+            text-sm sm:text-base lg:text-lg
+            rounded-full transition-all duration-300
+            shadow-xl hover:-translate-y-1"
+        >
+          Reserve Your Seat for ₹99
+
+          <span
+            className="text-xl
+              group-hover:translate-x-1
+              transition-transform duration-300"
+          >
+            →
+          </span>
+        </a>
+
+        <p
+          className="text-white/70 text-xs
+            mt-3 leading-relaxed
+            text-left max-w-[440px]"
+        >
+          An opportunity to understand yourself
+          and connect better with the people you love.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+ {/* SECTION 2: PROFILE & WEBINAR OFFER */}
+<section className="relative overflow-hidden bg-[#FAF6F0] px-5 py-12 md:px-8 md:py-16">
+
+  {/* Background Pattern */}
+  <div
+    className="absolute inset-0 pointer-events-none opacity-[0.035]"
+    style={{
+      backgroundImage:
+        "radial-gradient(#9E4770 1px, transparent 1px)",
+      backgroundSize: "22px 22px",
+    }}
+  />
+
+  {/* Background Glow */}
+  <div className="absolute -left-32 top-20 h-80 w-80 rounded-full bg-[#9E4770]/10 blur-[100px]" />
+  <div className="absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-[#9E4770]/10 blur-[100px]" />
+
+  <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-12">
+
+    {/* LEFT: PROFILE IMAGE */}
+    <div className="relative min-h-[420px] overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-[#F0DDE5] via-[#F8EDEB] to-[#E8CFDA] sm:min-h-[480px] lg:min-h-0">
+
+      {/* Decorative Circle */}
+      <div className="absolute -right-10 top-10 h-52 w-52 rounded-full border border-[#9E4770]/20" />
+
+      <div className="absolute bottom-12 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-white/40 blur-3xl" />
+
+      {/* Profile Image */}
+      {/* Profile Image */}
+<img
+  src="/person.png"
+  alt="Kavitha Ganeshraja"
+  className="absolute inset-x-0 bottom-[73px] h-[95%] w-full object-contain object-bottom p-0 transition-transform duration-500 hover:scale-[1.02]"
+/>
+
+      {/* Bottom Profile Badge */}
+      <div className="absolute bottom-5 left-5 right-5 rounded-xl border border-white/70 bg-white/90 p-4 shadow-lg backdrop-blur-sm sm:bottom-6 sm:left-6 sm:right-6">
+
+        <p className="text-base font-bold text-[#2A1625]">
+          Kavitha Ganeshraja
+        </p>
+
+        <p className="mt-1 text-xs text-[#71656D] sm:text-sm">
+          Relationship & Emotional Intelligence Expert
+        </p>
+
+      </div>
+
+    </div>
+
+    {/* RIGHT: CONTENT & OFFER */}
+    <div className="flex flex-col justify-center rounded-[1.75rem] border border-[#9E4770]/10 bg-white/60 p-5 sm:p-7 lg:p-8">
+
+      {/* Section Label */}
+      <div className="mb-4 flex items-center gap-3">
+        <span className="h-[2px] w-8 bg-[#9E4770]" />
+
+        <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#9E4770] sm:text-xs">
+          Meet Your Guide
+        </span>
+      </div>
+
+      {/* Heading */}
+      <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-[#2A1625] sm:text-4xl">
+        Understand Your Emotions.
+        <span className="mt-1 block text-[#9E4770]">
+          Build Stronger Relationships.
+        </span>
+      </h2>
+
+      {/* Description */}
+      <p className="mt-4 text-sm leading-6 text-[#71656D] sm:text-base">
+        Discover how emotional intelligence can help you understand yourself,
+        communicate better, and build healthier relationships.
+      </p>
+
+      {/* Offer Card */}
+      <div className="mt-6 rounded-2xl border border-[#9E4770]/15 bg-white p-5 shadow-[0_12px_35px_rgba(42,22,37,0.06)] sm:p-6">
+
+        {/* Offer Label */}
+        <div className="inline-flex items-center gap-2 rounded-full bg-[#F7EAF0] px-3 py-2">
+
+          <span className="text-sm">✦</span>
+
+          <span className="text-[10px] font-bold uppercase tracking-wider text-[#9E4770] sm:text-xs">
+            Exclusive Webinar Offer
+          </span>
+
+        </div>
+
+        {/* Price */}
+        <div className="mt-5 flex flex-wrap items-baseline gap-3">
+
+          <span className="text-base text-[#A59AA1] line-through sm:text-lg">
+            ₹3,000
+          </span>
+
+          <span className="text-4xl font-extrabold tracking-tight text-[#9E4770] sm:text-5xl">
+            ₹99
+          </span>
+
+          <span className="text-sm font-bold uppercase text-[#2A1625]">
+            Only
+          </span>
+
+        </div>
+
+        {/* Savings */}
+        <div className="mt-4 flex items-center gap-3 rounded-xl bg-[#2A1625] p-3 text-white">
+
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10 text-xl">
+            🎉
+          </div>
+
+          <div>
+            <p className="text-[10px] uppercase tracking-wider text-white/65">
+              Special Savings
+            </p>
+
+            <p className="mt-1 text-base font-bold">
+              Save ₹2,901
+              <span className="ml-2 text-xs font-semibold text-[#F3BBD1]">
+                96.7% OFF
+              </span>
+            </p>
+          </div>
+
+        </div>
+
+        {/* CTA Button */}
+        <a
+          href="#register"
+          className="group mt-5 flex min-h-[50px] w-full items-center justify-center gap-2 rounded-full bg-[#9E4770] px-4 py-3 text-center text-sm font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#2A1625] sm:text-base"
+        >
+          Join the Webinar for ₹99
+
+          <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
+            →
+          </span>
+        </a>
+
+        {/* Footer */}
+        <p className="mt-3 text-center text-xs text-[#8A7D85]">
+          Your journey towards better relationships starts here.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+     
+{/* SECTION 3: CORE SERVICES */}
+<section className="relative py-20 md:py-32 bg-[#FAF6F0] overflow-hidden px-5">
+  <style>
+    {`
+      @keyframes slideInLeft {
+        0% {
+          opacity: 0;
+          transform: translateX(-60px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .animate-slide-left {
+        opacity: 0;
+        animation: slideInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .animate-slide-left {
+          opacity: 1;
+          animation: none;
+        }
+      }
+    `}
+  </style>
+
+  <div className="max-w-[1400px] mx-auto">
+
+    {/* SECTION HEADING */}
+    <div className="text-center max-w-3xl mx-auto mb-16">
+      <span className="text-sm uppercase tracking-[0.2em] text-[#9E4770] font-bold">
+        WHAT YOU'LL DISCOVER
+      </span>
+
+      <h2 className="text-4xl md:text-5xl font-bold text-[#2A1625] mt-4 tracking-tight">
+        Build Stronger, Healthier Relationships
+      </h2>
+    </div>
+
+    {/* CORE SERVICES */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10">
+
+      {[
+        {
+          id: "01",
+          category: "EMOTIONAL TRIGGERS",
+          title: "Why Small Moments Can Trigger Big Reactions",
+          desc: "Understand the hidden emotions behind unexpected reactions and discover why seemingly small moments can create intense feelings in relationships.",
+          img: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1000&q=80",
+        },
+        {
+          id: "02",
+          category: "CHILDHOOD PATTERNS",
+          title: "What We Carry Into Adult Relationships",
+          desc: "Explore how childhood experiences, emotional needs, and learned behaviours influence the way we connect with our partners.",
+          img: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1000&q=80",
+        },
+        {
+          id: "03",
+          category: "COMMUNICATION",
+          title: "How Conversations Turn Into Conflict",
+          desc: "Recognise communication patterns that lead to misunderstandings and learn how empathy and listening can transform difficult conversations.",
+          img: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1000&q=80",
+        },
+        {
+          id: "04",
+          category: "EMOTIONAL AWARENESS",
+          title: "What You and Your Partner May Need",
+          desc: "Discover the emotional needs that often go unspoken and learn how awareness, understanding, and connection can strengthen your relationship.",
+          img: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1000&q=80",
+        },
+      ].map((service, idx) => (
+        <div
+          key={service.id}
+          className="animate-slide-left relative w-full h-[420px] md:h-[450px] rounded-[2rem] overflow-hidden group shadow-2xl"
+          style={{ animationDelay: `${idx * 0.2}s` }}
+        >
+          {/* BACKGROUND IMAGE */}
+          <img
+            src={service.img}
+            alt={service.title}
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+          />
+
+          {/* IMAGE OVERLAY */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#2A1625] via-[#2A1625]/70 to-[#2A1625]/10 opacity-95" />
+
+          {/* CARD CONTENT */}
+          <div className="relative z-10 flex flex-col justify-between h-full p-7 md:p-10">
+
+            {/* NUMBER */}
+            <div className="flex items-start justify-between gap-4">
+              <div className="w-12 h-12 shrink-0 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center text-[#F3C973] font-bold text-xl border border-white/20">
+                {service.id}
+              </div>
+
+              <span className="text-white/90 text-[10px] md:text-xs font-bold tracking-[0.18em] border border-white/30 rounded-full px-4 py-2 bg-white/10 backdrop-blur-sm">
+                {service.category}
+              </span>
+            </div>
+
+            {/* TEXT AND BUTTON */}
+            <div className="flex flex-col items-start">
+
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 tracking-tight leading-tight max-w-xl">
+                {service.title}
+              </h3>
+
+              <p className="text-white/85 font-light text-sm md:text-base mb-6 max-w-lg leading-relaxed">
+                {service.desc}
               </p>
 
-            <div className="pt-2 md:pt-4 w-full sm:w-auto">
               <a
                 href="#register"
-                className="inline-flex justify-center items-center px-10 py-4 bg-transparent hover:bg-white/10 text-white font-semibold rounded-full transition-all text-lg w-full sm:w-auto transform hover:-translate-y-1 border-2 border-white backdrop-blur-sm"
+                className="inline-flex items-center justify-center px-7 py-3.5 bg-[#F3C973] hover:bg-white text-[#2A1625] font-bold rounded-full transition-all duration-300 text-sm md:text-base transform group-hover:-translate-y-1 shadow-[0_10px_20px_rgba(243,201,115,0.2)]"
               >
-               Reserve Your Seat for ₹99 ↗
+                Book for ₹99
+                <span className="ml-2 font-normal">→</span>
               </a>
-            </div>
 
-            
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 2: PROFILE & CREDIBILITY */}
-      <section className="relative py-20 md:py-32 bg-[#FAF6F0] overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.04] bg-[radial-gradient(#2A1625_2px,transparent_2px)] [background-size:24px_24px]"></div>
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-[#9E4770]/10 rounded-full blur-[120px] pointer-events-none"></div>
-
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="flex justify-center lg:justify-end relative group">
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#9E4770]/10 to-transparent rounded-[4rem] transform -rotate-2 scale-105 transition-transform duration-700 group-hover:rotate-0"></div>
-            <img
-              src="/person.png"
-              alt="Kavitha Ganeshraja – Relationship and Emotional Intelligence Expert"
-              className="w-full max-w-xl lg:max-w-2xl object-contain drop-shadow-[0_30px_40px_rgba(42,22,37,0.2)] relative z-10 transition-transform duration-700 hover:scale-[1.03]"
-            />
-          </div>
-
-          <div className="space-y-8 flex flex-col items-start max-w-2xl">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="h-[2px] w-10 bg-[#9E4770]"></span>
-                <span className="text-sm uppercase tracking-[0.2em] text-[#9E4770] font-bold">
-                  Meet Your Guide
-                </span>
-              </div>
-              <h2 className="text-5xl md:text-6xl font-bold text-[#2A1625] tracking-tight leading-tight">
-               Therapist Gayathri
-              </h2>
-            </div>
-
-            <div className="text-[#71656D] leading-relaxed text-lg md:text-xl space-y-6 font-light">
-              <p className="font-medium text-[#2A1625] text-xl md:text-2xl">
-                Understand your emotions. Transform your relationships. </p>
-              <p>
-               Join Therapist Gayathri  to discover why we hurt the people we love—and  
-                <strong className="font-semibold text-[#2A1625]"> learn how to build deeper connections with understanding, empathy, and emotional intelligence</strong> 
-              </p>
-              <p>
-                Today, she guides a community of{" "}
-                <strong className="font-semibold text-[#2A1625]">1.5M+ followers</strong>, on a mission to help 10 Million people step into absolute abundance.
-              </p>
-            </div>
-
-            <div className="pt-6 w-full sm:w-auto relative">
-              <div className="absolute inset-0 bg-[#9E4770] rounded-full blur animate-pulse opacity-60"></div>
-              <a
-                href="#register"
-                className="relative inline-flex justify-center items-center px-12 py-5 bg-[#2A1625] hover:bg-[#9E4770] text-white font-semibold tracking-wide rounded-full shadow-2xl transition-all duration-300 text-lg md:text-xl w-full sm:w-auto transform hover:-translate-y-1 group"
-              >
-                Join the Webinar for ₹99
-                <span className="ml-3 group-hover:translate-x-2 transition-transform">→</span>
-              </a>
             </div>
           </div>
         </div>
-      </section>
+      ))}
 
-      {/* SECTION 3: CORE SERVICES */}
-      <section className="relative py-20 md:py-32 bg-[#FAF6F0] overflow-hidden px-5">
-        <style>
-          {`
-            @keyframes slideInLeft {
-              0% { opacity: 0; transform: translateX(-60px); }
-              100% { opacity: 1; transform: translateX(0); }
-            }
-            .animate-slide-left {
-              opacity: 0;
-              animation: slideInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-            }
-          `}
-        </style>
+    </div>
+  </div>
+</section>
 
-        <div className="max-w-[1400px] mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-sm uppercase tracking-[0.2em] text-[#9E4770] font-bold">
-             WHAT YOU'LL DISCOVER
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#2A1625] mt-4 tracking-tight">
-          Build Stronger, Healthier Relationships
-            </h2>
-        
-          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10">
-            {
-            
-[
-  {
-    id: "01",
-    title: "Why Do Couples Drift Apart?",
-    desc: "Understand why love changes after marriage and how to reconnect.",
-    img: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1000&q=80",
-  },
-  {
-    id: "02",
-    title: "Can Love Survive Marriage?",
-    desc: "Discover why love alone isn't always enough to keep a relationship strong.",
-    img: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1000&q=80",
-  },
-  {
-    id: "03",
-    title: "Why Do We Hurt Our Partner?",
-    desc: "Uncover the emotions behind repeated fights, hurtful words, and misunderstandings.",
-    img: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1000&q=80",
-  },
-  {
-    id: "04",
-    title: "What Makes Love Last?",
-    desc: "Learn how trust, emotional connection, and understanding build lasting love.",
-    img: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1000&q=80",
-  },
-]
-.map((service, idx) => (
-              <div
-                key={idx}
-                className="animate-slide-left relative w-full h-[400px] md:h-[450px] rounded-[2rem] overflow-hidden group shadow-2xl"
-                style={{ animationDelay: `${idx * 0.2}s` }}
-              >
-                <img
-                  src={service.img}
-                  alt={service.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#2A1625] via-[#2A1625]/60 to-transparent opacity-90"></div>
-                <div className="relative z-10 flex flex-col justify-between h-full p-8 md:p-10">
-                  <div className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center text-[#F3C973] font-bold text-xl border border-white/20">
-                    {service.id}
-                  </div>
-                  <div className="flex flex-col items-start">
-                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-3 tracking-tight">
-                      {service.title}
-                    </h3>
-                    <p className="text-white/80 font-light text-base md:text-lg mb-6 max-w-sm leading-relaxed">
-                      {service.desc}
-                    </p>
-                    <a
-                      href="#register"
-                      className="inline-flex items-center justify-center px-8 py-3.5 bg-[#F3C973] hover:bg-white text-[#2A1625] font-bold rounded-full transition-all duration-300 text-sm md:text-base transform group-hover:-translate-y-1 shadow-[0_10px_20px_rgba(243,201,115,0.2)]"
-                    >
-                      Book for ₹99 <span className="ml-2 font-normal">→</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* SECTION 4: REELS CAROUSEL */}
       <section className="border-b border-[#2A1625]/10 bg-white px-5 py-16 md:py-24">
@@ -421,15 +777,18 @@ Join the Webinar – ₹99          </a>
                   style={{ flex: `0 0 ${100 / videoSlidesToShow}%` }}
                 >
                   <div className="relative block h-[480px] md:h-[580px] overflow-hidden rounded-2xl bg-white shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-200">
-                    <iframe
-                      src={`https://www.instagram.com/reel/${reel.id}/embed`}
-                      className="absolute top-0 left-0 w-full h-[calc(100%+140px)] border-0 pointer-events-auto"
-                      frameBorder="0"
-                      scrolling="no"
-                      allowTransparency="true"
-                      allow="encrypted-media"
-                      title="Instagram Reel"
-                    ></iframe>
+                  
+                        <iframe
+                          src={`https://www.instagram.com/reel/${reel.id}/embed`}
+                          className="absolute top-0 left-0 w-full h-[calc(100%+140px)] border-0 pointer-events-auto"
+                          frameBorder="0"
+                          scrolling="no"
+                          allowTransparency="true"
+                          allow="encrypted-media"
+                          title="Instagram Reel"
+                        />
+
+
                   </div>
                 </div>
               ))}
@@ -877,7 +1236,7 @@ Join the Webinar – ₹99          </a>
         aria-label="Home"
       >
         <img 
-          src="/whitelogo.png" 
+          src="/whitecolor.png" 
           alt="Heal and Manifest Logo" 
           className="h-12 md:h-16 w-auto object-contain transition duration-300 group-hover:opacity-80"
         />
