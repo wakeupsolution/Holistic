@@ -9,38 +9,30 @@ const reels = [
   { id: "DdvrddhTRcI" },
 ];
 
+
 const reviews = [
   {
-    name: "Vignesh S",
-    role: "Data Analyst - Bangalore",
-    text: "Overcame my money blocks and transformed my financial situation. I'm now on a path of true abundance that I never thought possible.",
+    text: "We love each other, but sometimes we hurt each other without understanding why. Could understanding our emotions change everything?",
+    name: "For Couples",
+    role: "Understand Each Other Better",
   },
   {
-    name: "Ananya Singh",
-    role: "Software Engineer - Delhi",
-    text: "A game-changer for my relationships. The deep insights into self-love have brought remarkable harmony to my personal and professional life.",
+    text: "Marriage brings love, but also challenges. Learning to communicate can help couples feel heard, valued, and connected.",
+    name: "For Married Partners",
+    role: "Build a Stronger Bond",
   },
   {
-    name: "Vinodhini Shivam",
-    role: "Research Analyst, USA",
-    text: "Gayathri’s empowering teachings helped me break free from financial anxiety. The manifestation techniques are truly life-altering.",
+    text: "Why do the same arguments keep coming back? Understanding our patterns is the first step toward healthier conversations.",
+    name: "For Every Relationship",
+    role: "Break Repeating Patterns",
   },
   {
-    name: "Nivedita Rao",
-    role: "Tarot Reader - Bangalore",
-    text: "A revelation for my mind-body connection. The healing techniques brought a significant improvement to my physical and mental well-being.",
-  },
-  {
-    name: "Karthikeyan Ravi",
-    role: "Associate Manager - Coimbatore",
-    text: "A brilliant toolkit for inner peace. Reprogramming my subconscious mind has allowed me to navigate life with profound calm.",
-  },
-  {
-    name: "Divya Ravichandran",
-    role: "Fashion Designer - Chennai",
-    text: "I was stuck in self-doubt. This provided a roadmap for self-discovery, empowering me to finally live my true purpose.",
+    text: "A lasting relationship isn't about never disagreeing. It's about listening, understanding, and choosing to grow together.",
+    name: "For Lasting Love",
+    role: "Create Deeper Connections",
   },
 ];
+
 
 // --- Smooth Counter Component ---
 const AnimatedNumber = ({ value, suffix, isFloat }) => {
@@ -166,7 +158,10 @@ export default function App() {
               isScrolled ? "text-[#71656D]" : "text-white/90 tracking-wide"
             }
           >
-            ⚡ Live 2-Hour Masterclass
+           
+
+
+❤️ Live Relationship Webinar
           </span>
           <a
             href="#register"
@@ -176,8 +171,7 @@ export default function App() {
                 : "bg-transparent text-white hover:bg-white/10 border border-white/70"
             }`}
           >
-            Book for ₹99
-          </a>
+Join the Webinar – ₹99          </a>
         </div>
       </header>
 
@@ -201,47 +195,30 @@ export default function App() {
           <div className="w-full max-w-2xl text-left space-y-5 md:space-y-6 bg-black/20 backdrop-blur-xl border border-white/10 p-6 md:p-0 rounded-3xl md:bg-transparent md:backdrop-blur-none md:border-none md:rounded-none shadow-2xl md:shadow-none">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase bg-transparent text-white border border-white/30 backdrop-blur-md">
               <span className="h-2 w-2 rounded-full bg-[#F3C973]"></span>
-              Subconscious Healing
+               Relationship & Emotional Intelligence
             </span>
 
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight">
-              Rewire Your Mind. <br />
-              <span className="text-[#F3C973] font-medium">Manifest Abundance.</span>
+              Why Do We Hurt <br />
+              <span className="text-[#F3C973] font-medium">  the People We Love?</span>
             </h1>
 
             <p className="text-base md:text-xl text-white/80 leading-relaxed font-light">
-              Break free from unconscious blocks and self-sabotage. Learn proven frameworks to step into your highest potential.
-            </p>
+               Discover why the same arguments repeat, emotions take over, and
+  misunderstandings create distance. Understand your emotional triggers
+  and build healthier, more meaningful relationships
+              </p>
 
             <div className="pt-2 md:pt-4 w-full sm:w-auto">
               <a
                 href="#register"
                 className="inline-flex justify-center items-center px-10 py-4 bg-transparent hover:bg-white/10 text-white font-semibold rounded-full transition-all text-lg w-full sm:w-auto transform hover:-translate-y-1 border-2 border-white backdrop-blur-sm"
               >
-                Claim Your Seat for ₹99 ↗
+               Reserve Your Seat for ₹99 ↗
               </a>
             </div>
 
-            <div className="flex justify-between md:justify-start items-center md:gap-12 pt-6 mt-4 border-t border-white/20 text-white">
-              <div className="flex flex-col">
-                <AnimatedNumber value="1.5" suffix="M+" isFloat={true} />
-                <span className="text-[10px] md:text-sm font-light text-white/70 uppercase tracking-widest mt-1">
-                  Followers
-                </span>
-              </div>
-              <div className="flex flex-col">
-                <AnimatedNumber value="10" suffix="+" isFloat={false} />
-                <span className="text-[10px] md:text-sm font-light text-white/70 uppercase tracking-widest mt-1">
-                  Years Exp.
-                </span>
-              </div>
-              <div className="flex flex-col">
-                <AnimatedNumber value="30000" suffix="+" isFloat={false} />
-                <span className="text-[10px] md:text-sm font-light text-white/70 uppercase tracking-widest mt-1">
-                  Transformed
-                </span>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>
@@ -256,7 +233,7 @@ export default function App() {
             <div className="absolute inset-0 bg-gradient-to-tr from-[#9E4770]/10 to-transparent rounded-[4rem] transform -rotate-2 scale-105 transition-transform duration-700 group-hover:rotate-0"></div>
             <img
               src="/person.png"
-              alt="Mentor Gayathri"
+              alt="Kavitha Ganeshraja – Relationship and Emotional Intelligence Expert"
               className="w-full max-w-xl lg:max-w-2xl object-contain drop-shadow-[0_30px_40px_rgba(42,22,37,0.2)] relative z-10 transition-transform duration-700 hover:scale-[1.03]"
             />
           </div>
@@ -266,21 +243,20 @@ export default function App() {
               <div className="flex items-center gap-3 mb-4">
                 <span className="h-[2px] w-10 bg-[#9E4770]"></span>
                 <span className="text-sm uppercase tracking-[0.2em] text-[#9E4770] font-bold">
-                  Meet Your Coach
+                  Meet Your Guide
                 </span>
               </div>
               <h2 className="text-5xl md:text-6xl font-bold text-[#2A1625] tracking-tight leading-tight">
-                Holistic Therapist Gayathri
+               Therapist Gayathri
               </h2>
             </div>
 
             <div className="text-[#71656D] leading-relaxed text-lg md:text-xl space-y-6 font-light">
               <p className="font-medium text-[#2A1625] text-xl md:text-2xl">
-                A certified healing & manifestation coach with over 10 years of experience rewiring subconscious patterns.
-              </p>
+                Understand your emotions. Transform your relationships. </p>
               <p>
-                Mentored by global leaders like Tony Robbins, Jack Canfield, and Marisa Peer, Gayathri has empowered{" "}
-                <strong className="font-semibold text-[#2A1625]">30,000+ individuals</strong> to overcome deep-rooted traumas and wealth blocks.
+               Join Therapist Gayathri  to discover why we hurt the people we love—and  
+                <strong className="font-semibold text-[#2A1625]"> learn how to build deeper connections with understanding, empathy, and emotional intelligence</strong> 
               </p>
               <p>
                 Today, she guides a community of{" "}
@@ -294,7 +270,7 @@ export default function App() {
                 href="#register"
                 className="relative inline-flex justify-center items-center px-12 py-5 bg-[#2A1625] hover:bg-[#9E4770] text-white font-semibold tracking-wide rounded-full shadow-2xl transition-all duration-300 text-lg md:text-xl w-full sm:w-auto transform hover:-translate-y-1 group"
               >
-                Claim Your Seat for ₹99
+                Join the Webinar for ₹99
                 <span className="ml-3 group-hover:translate-x-2 transition-transform">→</span>
               </a>
             </div>
@@ -320,40 +296,44 @@ export default function App() {
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-sm uppercase tracking-[0.2em] text-[#9E4770] font-bold">
-              Transformation Areas
+             WHAT YOU'LL DISCOVER
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-[#2A1625] mt-4 tracking-tight">
-              What You Will Master
+          Build Stronger, Healthier Relationships
             </h2>
+        
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10">
-            {[
-              {
-                id: "01",
-                title: "Subconscious Healing",
-                desc: "Release suppressed emotions and past trauma holding you back.",
-                img: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1000&q=80",
-              },
-              {
-                id: "02",
-                title: "Wealth Manifestation",
-                desc: "Eliminate money blocks and attract high-income opportunities.",
-                img: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80",
-              },
-              {
-                id: "03",
-                title: "Emotional Harmony",
-                desc: "Heal attachment wounds and build deep emotional security.",
-                img: "https://img.magnific.com/free-photo/two-cheerful-sisters-lying-grass_158595-1545.jpg?semt=ais_hybrid&w=740&q=80",
-              },
-              {
-                id: "04",
-                title: "Spiritual Alignment",
-                desc: "Restore inner balance and connect with your highest self.",
-                img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1000&q=80",
-              },
-            ].map((service, idx) => (
+            {
+            
+[
+  {
+    id: "01",
+    title: "Why Do Couples Drift Apart?",
+    desc: "Understand why love changes after marriage and how to reconnect.",
+    img: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1000&q=80",
+  },
+  {
+    id: "02",
+    title: "Can Love Survive Marriage?",
+    desc: "Discover why love alone isn't always enough to keep a relationship strong.",
+    img: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1000&q=80",
+  },
+  {
+    id: "03",
+    title: "Why Do We Hurt Our Partner?",
+    desc: "Uncover the emotions behind repeated fights, hurtful words, and misunderstandings.",
+    img: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1000&q=80",
+  },
+  {
+    id: "04",
+    title: "What Makes Love Last?",
+    desc: "Learn how trust, emotional connection, and understanding build lasting love.",
+    img: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1000&q=80",
+  },
+]
+.map((service, idx) => (
               <div
                 key={idx}
                 className="animate-slide-left relative w-full h-[400px] md:h-[450px] rounded-[2rem] overflow-hidden group shadow-2xl"
@@ -479,10 +459,10 @@ export default function App() {
         <div className="relative z-10 max-w-[1400px] mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-sm uppercase tracking-[0.2em] text-[#9E4770] font-bold">
-              Real Stories
+             RELATIONSHIPS, REIMAGINED
             </span>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#2A1625] mt-4 tracking-tight">
-              Lives Transformed
+              Every Relationship Has a Story
             </h2>
           </div>
 
@@ -574,19 +554,19 @@ export default function App() {
     <div className="mb-12 text-center">
       <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#9E4770]/20 bg-white px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#9E4770] shadow-sm">
         <span className="h-2 w-2 animate-pulse rounded-full bg-[#9E4770]" />
-        Your Transformation Starts Here
+       Love Better. Connect Deeper.
       </span>
 
       <h2 className="mx-auto max-w-3xl font-serif text-3xl font-bold leading-tight text-[#2A1625] sm:text-4xl md:text-5xl">
-        Invest in Yourself.
+           Why Do We Hurt
         <span className="mt-2 block italic text-[#9E4770]">
-          Transform Your Inner World.
+         The People We Love?
         </span>
       </h2>
 
       <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#2A1625]/65 md:text-base">
-        Take the first step toward greater self-awareness with a guided
-        subconscious healing and manifestation experience.
+           Discover why love turns into conflict, why the same arguments repeat,
+    and how to build stronger, healthier relationships.
       </p>
     </div>
 
@@ -613,21 +593,19 @@ export default function App() {
               <circle cx="12" cy="12" r="10" />
               <path d="M12 7v5l3 2" />
             </svg>
-            Limited Seats Available
+           Your Journey to Better Relationships
           </div>
 
           <h3 className="font-serif text-3xl font-bold leading-tight text-[#2A1625] sm:text-4xl">
-            Subconscious Healing
+           Why Do We Hurt 
             <span className="block text-[#9E4770]">
-              & Manifestation
+              the People
             </span>
-            Masterclass
+            We Love?
           </h3>
 
           <p className="mt-5 max-w-lg text-sm leading-7 text-[#2A1625]/65">
-            Discover guided practices designed to help you explore your
-            subconscious patterns, develop self-awareness, and create
-            more intentional habits.
+            Discover why couples fight, why love feels different after marriage, and how emotional understanding can bring partners closer.
           </p>
 
           {/* Workshop Features */}
@@ -649,10 +627,11 @@ export default function App() {
 
               <div>
                 <h4 className="font-bold text-[#2A1625]">
-                  2-Hour Live Workshop
+                   Why Couples Drift Apart
+   
                 </h4>
                 <p className="mt-1 text-sm leading-6 text-[#2A1625]/60">
-                  An interactive session to explore your inner patterns.
+                  Understand what creates distance after marriage.
                 </p>
               </div>
             </div>
@@ -673,10 +652,12 @@ export default function App() {
 
               <div>
                 <h4 className="font-bold text-[#2A1625]">
-                  Subconscious Rewiring Worksheet
+                  Love vs. Marriage
+   
+
                 </h4>
                 <p className="mt-1 text-sm leading-6 text-[#2A1625]/60">
-                  A step-by-step worksheet for personal reflection.
+                  Discover why love alone may not be enough.
                 </p>
               </div>
             </div>
@@ -697,10 +678,11 @@ export default function App() {
 
               <div>
                 <h4 className="font-bold text-[#2A1625]">
-                  Guided Healing & Alignment Audio
+                Break the Cycle of Arguments
+  
                 </h4>
                 <p className="mt-1 text-sm leading-6 text-[#2A1625]/60">
-                  A guided audio experience for reflection and relaxation.
+                  Recognize emotional triggers and repeated conflicts.
                 </p>
               </div>
             </div>
@@ -720,10 +702,11 @@ export default function App() {
 
               <div>
                 <h4 className="font-bold text-[#2A1625]">
-                  Live Q&A Session
+                Build Lasting Connections
+
                 </h4>
                 <p className="mt-1 text-sm leading-6 text-[#2A1625]/60">
-                  Ask questions and participate in the discussion.
+                     Learn the value of trust, empathy, and communication.
                 </p>
               </div>
             </div>
@@ -742,7 +725,7 @@ export default function App() {
               >
                 <path d="m5 12 4 4L19 6" />
               </svg>
-              A guided experience for personal growth and self-reflection.
+             A 2-hour live webinar to understand relationships from a new perspective.
             </p>
           </div>
         </div>
@@ -762,11 +745,11 @@ export default function App() {
 
             <span className="inline-flex items-center gap-2 rounded-full border border-[#F3C973]/30 bg-[#F3C973]/10 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#F3C973]">
               <span className="h-1.5 w-1.5 rounded-full bg-[#F3C973]" />
-              Exclusive Workshop Offer
+              LIVE RELATIONSHIP WEBINAR
             </span>
 
             <p className="mt-8 text-sm font-medium text-white/65">
-              Your Entry Pass
+              Your Webinar Pass
             </p>
 
             {/* Price */}
@@ -803,8 +786,7 @@ export default function App() {
             </div>
 
             <p className="mx-auto mt-5 max-w-xs text-sm leading-6 text-white/60">
-              Get access to the masterclass and all the listed resources
-              for just ₹99.
+             Discover why couples fight, why love changes after marriage, and how to build a deeper emotional connection—for just ₹99.
             </p>
 
             {/* CTA Button */}
@@ -812,7 +794,7 @@ export default function App() {
               href="/register"
               className="group mt-8 flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-[#F3C973] to-[#E7B84F] px-5 py-4 text-sm font-extrabold text-[#2A1625] shadow-[0_8px_30px_rgba(243,201,115,0.2)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(243,201,115,0.35)] focus:outline-none focus:ring-4 focus:ring-[#F3C973]/40"
             >
-              Reserve My Seat
+             Save My Seat for ₹99
 
               <svg
                 className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
@@ -844,12 +826,11 @@ export default function App() {
             {/* Offer Footer */}
             <div className="mt-8 border-t border-white/10 pt-6">
               <p className="text-xs leading-6 text-white/55">
-                One small step toward a more intentional you.
+              Understand each other. Communicate better. Grow together.
               </p>
 
               <p className="mt-2 font-serif text-sm italic text-[#F3C973]">
-                Your journey begins within.
-              </p>
+                Because love deserves understanding. </p>
             </div>
 
           </div>
@@ -861,17 +842,17 @@ export default function App() {
     <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs font-medium text-[#2A1625]/60">
       <span className="flex items-center gap-2">
         <span className="text-[#9E4770]">✦</span>
-        Interactive Learning
+     Understand Your Partner
       </span>
 
       <span className="flex items-center gap-2">
         <span className="text-[#9E4770]">✦</span>
-        Guided Exercises
+        Better Communication
       </span>
 
       <span className="flex items-center gap-2">
         <span className="text-[#9E4770]">✦</span>
-        Personal Reflection
+         Deeper Emotional Connection
       </span>
     </div>
 
