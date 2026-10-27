@@ -1119,7 +1119,7 @@ export default function App() {
 
               <div className="text-left">
                 <p className="text-sm text-white/45 line-through">
-                  ₹1,999
+                  ₹3,000
                 </p>
                 <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-[#F3C973]">
                   Special Price
@@ -1140,7 +1140,7 @@ export default function App() {
               </svg>
 
               <span className="text-xs font-semibold text-white">
-                Save ₹1,900
+                Save ₹2901
               </span>
             </div>
 
