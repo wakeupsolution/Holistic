@@ -1316,7 +1316,7 @@ export default function App() {
             Live Masterclass
           </p>
           <p className="text-xl font-serif font-bold text-[#2A1625]">
-            ₹99 <span className="text-sm line-through text-[#71656D] ml-1">₹1999</span>
+            ₹99 <span className="text-sm line-through text-[#71656D] ml-1">₹3000</span>
           </p>
         </div>
         <a
