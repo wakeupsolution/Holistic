@@ -63,17 +63,6 @@ const WorkshopPopup = () => {
             overflow-hidden rounded-2xl bg-white shadow-2xl
             animate-[zoomIn_0.35s_ease]"
           >
-            {/* CLOSE BUTTON */}
-            <button
-              onClick={() => setIsOpen(false)}
-              aria-label="Close popup"
-              className="absolute right-3 top-3 z-20 flex h-10
-              w-10 items-center justify-center rounded-full
-              bg-black/70 text-2xl text-white shadow-lg
-              transition hover:rotate-90 hover:bg-red-600"
-            >
-              &times;
-            </button>
 
             {/* WORKSHOP POSTER */}
             <div className="max-h-[95vh] overflow-y-auto">
