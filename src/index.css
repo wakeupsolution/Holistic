@@ -25,3 +25,6 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
 }
+
+
+.contact-float { animation: contactFloat 3s ease-in-out infinite; } .whatsapp-float { animation-delay: 0.5s; } @keyframes contactFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } } @media (prefers-reduced-motion: reduce) { .contact-float { animation: none; } }

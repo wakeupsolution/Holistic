@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import WorkshopPopup from "./WorkshopPopup";
 
 const reels = [
   { id: "DdbdcfXx_mx" },
@@ -134,108 +134,129 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#FAF6F0] text-[#241E22] antialiased">
   
+
 {/* HEADER */}
 <header
-  className={`fixed top-0 left-0 right-0 z-50 h-20 px-5 md:px-12
-  flex justify-between items-center transition-all duration-300 ${
-    isScrolled
-      ? "bg-white shadow-md text-[#2a16254e]"
-      : "bg-transparent text-white"
-  }`}
+  className={`fixed top-0 left-0 right-0 z-50
+    h-[72px] md:h-[90px]
+    px-4 sm:px-6 md:px-10 lg:px-16
+    flex justify-between items-center gap-3
+    transition-all duration-300
+    ${
+      isScrolled
+        ? "bg-white shadow-md text-[#2A1625]"
+        : "bg-transparent text-white"
+    }`}
 >
-  <div className="relative h-full w-40 md:w-48 shrink-0">
+
+  {/* LOGO */}
+  <div className="shrink-0 w-[165px] sm:w-[190px] md:w-[250px] lg:w-[290px]">
     <img
       src={isScrolled ? "/colorlogo.png" : "/whitecolor.png"}
-      alt="Heal and Manifest Logo"
-      className="absolute left-0 top-1/2 -translate-y-1/2
-      w-[250px] md:w-[300px] h-auto max-w-none
-      object-contain object-left transition-all duration-300"
+      alt="Kavitha Ganeshraja Logo"
+      className="w-full h-auto object-contain object-left
+        transition-all duration-300"
     />
   </div>
 
-  <div className="hidden md:flex items-center gap-5 text-sm font-medium">
+  {/* RIGHT CONTENT */}
+  <div className="flex items-center gap-2 sm:gap-4 md:gap-6 shrink-0">
+
+    {/* SESSION TEXT */}
     <span
-      className={
-        isScrolled
-          ? "text-[#71656D]"
-          : "text-white/90 tracking-wide"
-      }
+      className={`hidden lg:block text-sm xl:text-base font-medium whitespace-nowrap
+        ${
+          isScrolled
+            ? "text-[#71656D]"
+            : "text-white"
+        }`}
     >
-      ❤️ Live Relationship Webinar
+      ❤️ Live 3-Hour Relationship Session
     </span>
 
+    {/* JOIN BUTTON */}
     <a
       href="#register"
-      className="px-6 py-3 rounded-full bg-[#9E4770]
-      text-white font-semibold hover:bg-[#803458]
-      transition-all duration-300 shadow-lg"
+      className="px-3.5 sm:px-5 md:px-7
+        py-2.5 md:py-3
+        rounded-full bg-[#9E4770]
+        text-white
+        text-[11px] sm:text-xs md:text-base
+        font-semibold whitespace-nowrap
+        hover:bg-[#803458]
+        transition-all duration-300
+        shadow-lg"
     >
       Join Now – ₹99
     </a>
+
   </div>
+
 </header>
+
+
 
 
 
 {/* HERO SECTION */}
 <section
-  className="relative isolate w-full min-h-screen
+  className="relative isolate w-full
+    min-h-[650px] lg:min-h-[720px]
     flex items-center overflow-hidden
-    bg-[#080504] pt-24 pb-10
-    sm:pt-28 md:pt-24 md:pb-12"
+    bg-[#080504]
+    pt-28 pb-10
+    md:pt-28 md:pb-12"
 >
+
   {/* BACKGROUND IMAGE */}
   <div className="absolute inset-0 -z-20 overflow-hidden">
 
-    {/* Desktop Background */}
-    <img
-      src="/dektopbaner.png"
-      alt=""
-      aria-hidden="true"
-      className="hidden md:block absolute inset-0
-        w-full h-full object-contain object-right"
-    />
+  {/* DESKTOP BACKGROUND */}
+  <img
+    src="/dektopbaner.png"
+    alt=""
+    aria-hidden="true"
+    className="hidden md:block absolute inset-0
+      w-full h-full
+      object-contain object-right"
+  />
 
-    {/* Mobile Background */}
-    <img
-      src="/mobilebaner.png"
-      alt=""
-      aria-hidden="true"
-      className="md:hidden absolute inset-0
-        w-full h-full object-cover object-center"
-    />
+  {/* MOBILE BACKGROUND */}
+  <img
+    src="/mobilebaner.png"
+    alt=""
+    aria-hidden="true"
+    className="md:hidden absolute inset-0
+      w-full h-full
+      object-cover object-center"
+  />
 
   </div>
 
-
   {/* DESKTOP OVERLAY */}
   <div
-    className="absolute inset-0 -z-10
+    className="absolute inset-0 -z-10 hidden md:block
       bg-gradient-to-r
-      from-black/95 via-black/65 to-black/10
-      md:block hidden"
+      from-black/95 via-black/65 to-black/10"
   />
 
   {/* MOBILE OVERLAY */}
   <div
-    className="absolute inset-0 -z-10
+    className="absolute inset-0 -z-10 md:hidden
       bg-gradient-to-b
-      from-black/50 via-black/65 to-black/95
-      md:hidden"
+      from-black/75 via-black/65 to-black/90"
   />
 
-
-  {/* HERO CONTENT WRAPPER */}
+  {/* HERO CONTENT */}
   <div
     className="relative z-10 w-full
-      max-w-[1440px] mx-auto
-      px-4 sm:px-8 lg:px-12 xl:px-16"
+      max-w-[1500px] mx-auto
+      px-5 sm:px-8 lg:px-14 xl:px-16"
   >
+
     <div
-      className="w-full max-w-[760px]
-        text-left space-y-5
-        sm:space-y-6 md:space-y-7
-        py-5 md:py-8"
+      className="w-full max-w-[720px]
+        text-left space-y-5 md:space-y-6"
     >
 
       {/* CATEGORY */}
@@ -247,198 +268,249 @@ export default function App() {
           bg-white/10 border border-white/20
           backdrop-blur-md"
       >
-        <span
-          className="w-2 h-2 rounded-full
-            bg-[#F3C973] shrink-0"
-        />
+
+        <span className="w-2 h-2 rounded-full bg-[#F3C973] shrink-0" />
 
         <span
-          className="text-[9px] sm:text-xs
-            font-semibold tracking-[0.12em]
-            sm:tracking-[0.16em]
-            uppercase text-white"
+          className="text-[9px] sm:text-[10px] md:text-[11px]
+            font-medium tracking-[0.10em]
+            uppercase text-white leading-relaxed"
         >
-          Relationship & Emotional Intelligence
+          Relationship & Emotional Intelligence Expert
+          | Couple Dynamics | Human Behaviour
         </span>
+
       </div>
 
-
-      {/* WEBINAR LABEL */}
+      {/* SESSION LABEL */}
       <div
         className="flex items-center gap-2
           text-[#F3C973]
-          text-sm sm:text-base font-semibold"
+          text-xs sm:text-sm md:text-base
+          font-medium"
       >
-        <span className="text-xl">❤️</span>
-        <span>LIVE ONLINE WEBINAR</span>
-      </div>
+        <span className="text-lg">❤️</span>
 
+        <span>
+          LIVE ONLINE SESSION
+          <span className="text-white/90 font-normal">
+            {" "}• 3 HOURS
+          </span>
+        </span>
+      </div>
 
       {/* MAIN HEADING */}
       <h1
-        className="text-[36px] leading-[1.12]
-          sm:text-5xl
-          md:text-5xl
-          lg:text-6xl
-          xl:text-7xl
-          font-bold text-white tracking-tight"
+        className="text-[32px]
+          leading-[1.15]
+          sm:text-[40px]
+          md:text-[48px]
+          lg:text-[60px]
+          xl:text-[66px]
+          font-semibold
+          text-white
+          tracking-[-0.025em]"
       >
+
         Why Do We Hurt
 
         <span
-          className="block text-[#F3C973]
-            font-medium mt-2"
+          className="block
+            text-[#F3C973]
+            font-normal mt-1"
         >
           the People We Love?
         </span>
-      </h1>
 
+      </h1>
 
       {/* DESCRIPTION */}
       <p
-        className="text-sm sm:text-base
-          md:text-lg lg:text-xl
-          text-white/90 leading-relaxed
-          max-w-[650px] font-light"
+        className="text-[13px]
+          sm:text-sm
+          md:text-base
+          lg:text-[17px]
+          text-white/90
+          leading-[1.75]
+          max-w-[650px]
+          font-normal"
       >
-        Do the same arguments keep happening?
-        Do emotions take over before you can explain
-        yourself? Discover why it happens and learn
-        how to communicate better, understand your
-        emotions, and build healthier relationships.
-      </p>
 
+        You may love someone deeply—and still snap at them,
+        shut down, bring up old wounds, or repeat the same
+        argument. Why does it happen? And what's really
+        going on beneath the reaction?
+
+        <br /><br />
+
+        Join Kavitha Ganeshraja for a thoughtful, practical
+        <strong className="text-[#F3C973] font-medium">
+          {" "}3-hour session
+        </strong>
+        {" "}to explore the emotional patterns that shape
+        how we connect, disconnect and reconnect.
+
+      </p>
 
       {/* BENEFITS */}
       <div
         className="grid grid-cols-1
           sm:grid-cols-2
-          gap-x-6 gap-y-3
-          pt-1 max-w-[650px]
-          text-sm sm:text-base
-          text-white/95"
+          gap-x-7 gap-y-3
+          pt-1 max-w-[620px]
+          text-xs sm:text-sm md:text-[15px]
+          text-white/95 font-normal"
       >
 
         {[
-          "Understand Your Emotions",
-          "Improve Communication",
-          "Break Repeating Patterns",
+          "Emotional Triggers",
+          "Childhood Patterns",
+          "Healthy Communication",
           "Build Stronger Connections",
         ].map((benefit) => (
+
           <div
             key={benefit}
-            className="flex items-center gap-3 min-w-0"
+            className="flex items-center gap-2.5"
           >
+
             <span
               className="flex items-center justify-center
-                w-7 h-7 rounded-full
+                w-6 h-6 rounded-full
                 bg-[#F3C973]/20
-                text-[#F3C973] shrink-0"
+                text-[#F3C973]
+                text-xs shrink-0"
             >
               ✓
             </span>
 
             <span>{benefit}</span>
+
           </div>
+
         ))}
 
       </div>
 
-
       {/* SPECIAL OFFER CARD */}
       <div
-        className="relative w-full max-w-[440px]
-          mt-5 rounded-2xl
+        className="relative w-full max-w-[420px]
+          mt-4 rounded-xl
           border border-[#F3C973]/50
-          bg-black/55 backdrop-blur-md
-          p-4 sm:p-5 overflow-hidden"
+          bg-black/60 backdrop-blur-lg
+          p-4 sm:p-5
+          overflow-hidden"
       >
+
         {/* OFFER BADGE */}
         <div
           className="absolute top-0 right-0
-            bg-[#F3C973] text-[#2A1625]
-            text-[10px] sm:text-xs
-            font-extrabold px-3 sm:px-4 py-2
-            rounded-bl-xl tracking-wide"
+            bg-[#F3C973]
+            text-[#2A1625]
+            text-[9px] sm:text-[10px]
+            font-bold
+            px-3 py-1.5
+            rounded-bl-lg
+            tracking-wide"
         >
           SPECIAL OFFER
         </div>
 
-        <p className="text-white/80 text-xs sm:text-sm mb-2 pr-24">
-          Get this valuable webinar at an exclusive price
+        <p className="text-white/80
+          text-[11px] sm:text-xs mb-2 pr-24"
+        >
+          Get this valuable 3-hour session at an exclusive price
         </p>
 
         <div className="flex items-center gap-3 flex-wrap">
+
           <span
             className="text-white/60
-              line-through text-lg sm:text-2xl"
+              line-through text-lg sm:text-xl"
           >
             ₹3,000
           </span>
 
           <span
             className="text-[#F3C973]
-              text-4xl sm:text-5xl font-extrabold"
+              text-3xl sm:text-4xl font-bold"
           >
             ₹99
           </span>
 
-          <span className="text-white text-sm font-semibold">
+          <span className="text-white text-xs font-medium">
             ONLY
           </span>
+
         </div>
 
-        <p className="text-green-300 text-xs sm:text-sm font-semibold mt-2">
-          Save ₹2,901 on your webinar registration!
+        <p
+          className="text-green-300
+            text-[11px] sm:text-xs
+            font-medium mt-2"
+        >
+          Save ₹2,901 on your session registration!
         </p>
-      </div>
 
+      </div>
 
       {/* CTA BUTTON */}
       <div className="pt-1 w-full sm:w-auto">
 
         <a
           href="#register"
-          className="group inline-flex items-center
-            justify-center gap-3
+          className="group inline-flex
+            items-center justify-center
+            gap-2.5
             w-full sm:w-auto
-            px-6 sm:px-8 lg:px-10
-            py-4 bg-[#9E4770]
+            px-6 sm:px-8
+            py-3.5
+            bg-[#9E4770]
             hover:bg-[#803458]
-            text-white font-bold
-            text-sm sm:text-base lg:text-lg
-            rounded-full transition-all duration-300
-            shadow-xl hover:-translate-y-1"
+            text-white font-semibold
+            text-xs sm:text-sm md:text-base
+            rounded-full
+            transition-all duration-300
+            shadow-xl
+            hover:-translate-y-1"
         >
+
           Reserve Your Seat for ₹99
 
           <span
-            className="text-xl
+            className="text-lg
               group-hover:translate-x-1
               transition-transform duration-300"
           >
             →
           </span>
+
         </a>
 
         <p
-          className="text-white/70 text-xs
+          className="text-white/70
+            text-[10px] sm:text-xs
             mt-3 leading-relaxed
-            text-left max-w-[440px]"
+            max-w-[440px]"
         >
           An opportunity to understand yourself
           and connect better with the people you love.
+
         </p>
 
       </div>
 
     </div>
+
   </div>
+
 </section>
 
 
 
- {/* SECTION 2: PROFILE & WEBINAR OFFER */}
+
+
+ {/* SECTION 2: PROFILE & Session OFFER */}
 <section className="relative overflow-hidden bg-[#FAF6F0] px-5 py-12 md:px-8 md:py-16">
 
   {/* Background Pattern */}
@@ -496,7 +568,7 @@ export default function App() {
         <span className="h-[2px] w-8 bg-[#9E4770]" />
 
         <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#9E4770] sm:text-xs">
-          Meet Your Guide
+          Meet Your Mentor
         </span>
       </div>
 
@@ -514,77 +586,174 @@ export default function App() {
         communicate better, and build healthier relationships.
       </p>
 
-      {/* Offer Card */}
-      <div className="mt-6 rounded-2xl border border-[#9E4770]/15 bg-white p-5 shadow-[0_12px_35px_rgba(42,22,37,0.06)] sm:p-6">
+      {/* PREMIUM OFFER CARD */}
+<div className="relative mt-6 w-full max-w-[440px]
+  overflow-hidden rounded-2xl
+  border border-[#9E4770]/25
+  bg-white p-5 sm:p-6
+  shadow-[0_15px_45px_rgba(42,22,37,0.12)]">
 
-        {/* Offer Label */}
-        <div className="inline-flex items-center gap-2 rounded-full bg-[#F7EAF0] px-3 py-2">
+  {/* TOP ACCENT */}
+  <div className="absolute left-0 top-0 h-1 w-full
+    bg-gradient-to-r from-[#9E4770] via-[#F3BBD1] to-[#9E4770]" />
 
-          <span className="text-sm">✦</span>
+  {/* OFFER HEADER */}
+  <div className="flex items-center justify-between gap-2">
 
-          <span className="text-[10px] font-bold uppercase tracking-wider text-[#9E4770] sm:text-xs">
-            Exclusive Webinar Offer
-          </span>
+    <div className="inline-flex items-center gap-2
+      rounded-full bg-[#F7EAF0] px-3 py-2">
 
-        </div>
+      <span className="text-sm text-[#9E4770]">✦</span>
 
-        {/* Price */}
-        <div className="mt-5 flex flex-wrap items-baseline gap-3">
+      <span className="text-[10px] font-bold uppercase
+        tracking-wider text-[#9E4770] sm:text-xs">
+        Exclusive Offer
+      </span>
 
-          <span className="text-base text-[#A59AA1] line-through sm:text-lg">
-            ₹3,000
-          </span>
+    </div>
 
-          <span className="text-4xl font-extrabold tracking-tight text-[#9E4770] sm:text-5xl">
-            ₹99
-          </span>
+    {/* SESSION DURATION */}
+    <span className="rounded-full bg-[#2A1625]
+      px-3 py-2 text-[9px] font-bold
+      uppercase tracking-wide text-white sm:text-[10px]">
+      ⏱ 3 Hours
+    </span>
 
-          <span className="text-sm font-bold uppercase text-[#2A1625]">
-            Only
-          </span>
+  </div>
 
-        </div>
 
-        {/* Savings */}
-        <div className="mt-4 flex items-center gap-3 rounded-xl bg-[#2A1625] p-3 text-white">
+  {/* SESSION TITLE */}
+  <div className="mt-5">
 
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10 text-xl">
-            🎉
-          </div>
+    <p className="text-xs font-semibold uppercase
+      tracking-[0.15em] text-[#9E4770]">
+      Live Online Relationship Session
+    </p>
 
-          <div>
-            <p className="text-[10px] uppercase tracking-wider text-white/65">
-              Special Savings
-            </p>
+    <h3 className="mt-2 text-xl font-bold
+      leading-snug text-[#2A1625] sm:text-2xl">
+      Understand Yourself.
+      <span className="block text-[#9E4770] font-semibold">
+        Build Stronger Connections.
+      </span>
+    </h3>
 
-            <p className="mt-1 text-base font-bold">
-              Save ₹2,901
-              <span className="ml-2 text-xs font-semibold text-[#F3BBD1]">
-                96.7% OFF
-              </span>
-            </p>
-          </div>
+  </div>
 
-        </div>
 
-        {/* CTA Button */}
-        <a
-          href="#register"
-          className="group mt-5 flex min-h-[50px] w-full items-center justify-center gap-2 rounded-full bg-[#9E4770] px-4 py-3 text-center text-sm font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#2A1625] sm:text-base"
-        >
-          Join the Webinar for ₹99
+  {/* PRICE SECTION */}
+  <div className="mt-5 flex items-center gap-3">
 
-          <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </span>
-        </a>
+    <div>
+      <p className="text-[10px] font-medium uppercase
+        tracking-wider text-[#A59AA1]">
+        Regular Price
+      </p>
 
-        {/* Footer */}
-        <p className="mt-3 text-center text-xs text-[#8A7D85]">
-          Your journey towards better relationships starts here.
-        </p>
+      <span className="text-lg text-[#A59AA1]
+        line-through sm:text-xl">
+        ₹3,000
+      </span>
+    </div>
+
+    <div className="h-10 w-px bg-[#E9DCE2]" />
+
+    <div>
+      <p className="text-[10px] font-bold uppercase
+        tracking-wider text-[#9E4770]">
+        Special Price
+      </p>
+
+      <div className="flex items-baseline gap-1">
+
+        <span className="text-5xl font-extrabold
+          tracking-tight text-[#9E4770]">
+          ₹99
+        </span>
+
+        <span className="text-xs font-semibold
+          text-[#2A1625]">
+          ONLY
+        </span>
 
       </div>
+    </div>
+
+  </div>
+
+
+  {/* SAVINGS HIGHLIGHT */}
+  <div className="mt-5 flex items-center gap-3
+    rounded-xl bg-[#2A1625] p-3.5 text-white">
+
+    <div className="flex h-10 w-10 shrink-0
+      items-center justify-center rounded-full
+      bg-white/10 text-xl">
+      🎉
+    </div>
+
+    <div className="min-w-0">
+
+      <p className="text-[10px] uppercase
+        tracking-wider text-white/60">
+        Your Special Savings
+      </p>
+
+      <p className="mt-1 text-base font-bold">
+        Save ₹2,901
+
+        <span className="ml-2 rounded-md
+          bg-[#F3BBD1]/20 px-2 py-1
+          text-[10px] font-bold text-[#F3BBD1]">
+          96.7% OFF
+        </span>
+      </p>
+
+    </div>
+
+  </div>
+
+
+  {/* CTA BUTTON */}
+  <a
+    href="#register"
+    className="group mt-5 flex min-h-[52px]
+      w-full items-center justify-center
+      gap-2 rounded-full
+      bg-[#9E4770] px-4 py-3
+      text-center text-sm font-bold
+      text-white shadow-lg
+      transition-all duration-300
+      hover:-translate-y-1
+      hover:bg-[#803458] sm:text-base"
+  >
+
+    Reserve Your Seat for ₹99
+
+    <span className="text-lg transition-transform
+      duration-300 group-hover:translate-x-1">
+      →
+    </span>
+
+  </a>
+
+
+  {/* FOOTER */}
+  <div className="mt-4 flex items-center
+    justify-center gap-2">
+
+    <span className="text-[#9E4770]">♥</span>
+
+    <p className="text-center text-[10px]
+      leading-relaxed text-[#8A7D85] sm:text-xs">
+      A meaningful 3-hour journey towards
+      healthier relationships.
+    </p>
+
+  </div>
+
+</div>
+
 
     </div>
 
@@ -658,13 +827,13 @@ export default function App() {
           desc: "Recognise communication patterns that lead to misunderstandings and learn how empathy and listening can transform difficult conversations.",
           img: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1000&q=80",
         },
-        {
-          id: "04",
-          category: "EMOTIONAL AWARENESS",
-          title: "What You and Your Partner May Need",
-          desc: "Discover the emotional needs that often go unspoken and learn how awareness, understanding, and connection can strengthen your relationship.",
-          img: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1000&q=80",
-        },
+       {
+  id: "04",
+  category: "RELATIONSHIP AWARENESS",
+  title: "Silent Divorce: When Love Turns Into Silence",
+  desc: "Explore the hidden signs of emotional disconnection, understand why couples drift apart while staying together, and discover ways to rebuild intimacy, communication, and emotional connection.",
+  img: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1000&q=80",
+},
       ].map((service, idx) => (
         <div
           key={service.id}
@@ -897,326 +1066,188 @@ export default function App() {
         </div>
       </section>
 
-  
-{/* SECTION 6: PREMIUM MASTERCLASS CHECKOUT */}
+
+{/* SECTION 6: SESSION OFFER */}
 <section
   id="register"
-  className="relative overflow-hidden bg-[#FAF6F0] px-5 py-20 md:py-28"
+  className="relative overflow-hidden bg-[#FAF6F0] px-5 py-14 md:py-20"
 >
-  {/* Decorative Background Elements */}
   <div className="absolute -left-32 top-20 h-72 w-72 rounded-full bg-[#9E4770]/10 blur-3xl" />
   <div className="absolute -right-32 bottom-10 h-80 w-80 rounded-full bg-[#F3C973]/20 blur-3xl" />
 
   <div className="relative mx-auto max-w-6xl">
 
-    {/* Section Heading */}
-    <div className="mb-12 text-center">
-      <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#9E4770]/20 bg-white px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#9E4770] shadow-sm">
-        <span className="h-2 w-2 animate-pulse rounded-full bg-[#9E4770]" />
-       Love Better. Connect Deeper.
+    {/* HEADING */}
+    <div className="mb-10 text-center">
+
+      <span className="inline-flex items-center gap-2 rounded-full border border-[#9E4770]/20 bg-white px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-[#9E4770]">
+        ✦ A Meaningful Step Towards Better Relationships
       </span>
 
-      <h2 className="mx-auto max-w-3xl font-serif text-3xl font-bold leading-tight text-[#2A1625] sm:text-4xl md:text-5xl">
-           Why Do We Hurt
-        <span className="mt-2 block italic text-[#9E4770]">
-         The People We Love?
+      <h2 className="mx-auto mt-5 max-w-3xl font-serif text-3xl font-bold leading-tight text-[#2A1625] sm:text-4xl md:text-5xl">
+        Your Relationship Deserves
+        <span className="block italic text-[#9E4770]">
+          More Than Just Love.
         </span>
       </h2>
 
-      <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#2A1625]/65 md:text-base">
-           Discover why love turns into conflict, why the same arguments repeat,
-    and how to build stronger, healthier relationships.
+      <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[#2A1625]/65">
+        Understand your emotions, break repeating patterns,
+        and discover healthier ways to connect with the people you love.
       </p>
+
     </div>
 
-    {/* Main Checkout Card */}
-    <div className="relative mx-auto max-w-5xl overflow-hidden rounded-[28px] border border-[#F3C973]/60 bg-white shadow-[0_25px_80px_rgba(42,22,37,0.12)]">
 
-      {/* Top Gold Accent */}
-      <div className="h-1.5 w-full bg-gradient-to-r from-[#9E4770] via-[#F3C973] to-[#9E4770]" />
+    {/* OFFER CARD */}
+    <div className="mx-auto max-w-5xl overflow-hidden rounded-[24px] border border-[#F3C973]/50 bg-white shadow-xl">
 
-      <div className="grid md:grid-cols-[1.25fr_0.75fr]">
+      <div className="h-1.5 bg-gradient-to-r from-[#9E4770] via-[#F3C973] to-[#9E4770]" />
 
-        {/* LEFT: WORKSHOP DETAILS */}
-        <div className="p-7 sm:p-10 md:p-12 lg:p-14">
+      <div className="grid md:grid-cols-[1.2fr_0.8fr]">
 
-          {/* Limited Seats Badge */}
-          <div className="mb-7 inline-flex items-center gap-2 rounded-lg bg-[#F3C973]/20 px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#7A4B18]">
-            <svg
-              className="h-4 w-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <circle cx="12" cy="12" r="10" />
-              <path d="M12 7v5l3 2" />
-            </svg>
-           Your Journey to Better Relationships
-          </div>
+        {/* LEFT CONTENT */}
+        <div className="p-6 sm:p-9 md:p-11">
 
-          <h3 className="font-serif text-3xl font-bold leading-tight text-[#2A1625] sm:text-4xl">
-           Why Do We Hurt 
+          <span className="rounded-full bg-[#F3C973]/20 px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-[#7A4B18]">
+            ❤️ Your Journey Starts Here
+          </span>
+
+          <h3 className="mt-6 font-serif text-3xl font-bold leading-tight text-[#2A1625] sm:text-4xl">
+            Don't Let Emotional
             <span className="block text-[#9E4770]">
-              the People
+              Distance Define
             </span>
-            We Love?
+            Your Relationship.
           </h3>
 
-          <p className="mt-5 max-w-lg text-sm leading-7 text-[#2A1625]/65">
-            Discover why couples fight, why love feels different after marriage, and how emotional understanding can bring partners closer.
+          <p className="mt-4 max-w-lg text-sm leading-7 text-[#2A1625]/65">
+            Take 3 hours to understand yourself, explore
+            relationship patterns, and discover new ways
+            to build meaningful connections.
           </p>
 
-          {/* Workshop Features */}
-          <div className="mt-9 space-y-5">
 
-            <div className="flex items-start gap-4">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#9E4770]/10 text-[#9E4770]">
-                <svg
-                  className="h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.7"
-                >
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M12 7v5l3 2" />
-                </svg>
+          {/* BENEFITS */}
+          <div className="mt-7 space-y-5">
+
+            {[
+              ["♡", "Understand Your Emotions", "Recognize your emotional triggers."],
+              ["✦", "Break Repeating Patterns", "Understand recurring conflicts."],
+              ["♥", "Reconnect With Understanding", "Explore healthier communication."],
+            ].map(([icon, title, desc]) => (
+
+              <div key={title} className="flex items-center gap-3">
+
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#9E4770]/10 text-lg text-[#9E4770]">
+                  {icon}
+                </div>
+
+                <div>
+                  <h4 className="text-sm font-bold text-[#2A1625]">
+                    {title}
+                  </h4>
+
+                  <p className="mt-1 text-xs text-[#2A1625]/60">
+                    {desc}
+                  </p>
+                </div>
+
               </div>
 
-              <div>
-                <h4 className="font-bold text-[#2A1625]">
-                   Why Couples Drift Apart
-   
-                </h4>
-                <p className="mt-1 text-sm leading-6 text-[#2A1625]/60">
-                  Understand what creates distance after marriage.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#9E4770]/10 text-[#9E4770]">
-                <svg
-                  className="h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.7"
-                >
-                  <path d="M8 4h8l4 4v12H4V4h4Z" />
-                  <path d="M8 4v5h8V4M8 13h8M8 17h5" />
-                </svg>
-              </div>
-
-              <div>
-                <h4 className="font-bold text-[#2A1625]">
-                  Love vs. Marriage
-   
-
-                </h4>
-                <p className="mt-1 text-sm leading-6 text-[#2A1625]/60">
-                  Discover why love alone may not be enough.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#9E4770]/10 text-[#9E4770]">
-                <svg
-                  className="h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.7"
-                >
-                  <path d="M12 3v18M8 7a4 4 0 0 1 8 0c0 2-2 3-4 5-2-2-4-3-4-5Z" />
-                  <path d="M5 16c1 2 3 3 7 3s6-1 7-3" />
-                </svg>
-              </div>
-
-              <div>
-                <h4 className="font-bold text-[#2A1625]">
-                Break the Cycle of Arguments
-  
-                </h4>
-                <p className="mt-1 text-sm leading-6 text-[#2A1625]/60">
-                  Recognize emotional triggers and repeated conflicts.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#9E4770]/10 text-[#9E4770]">
-                <svg
-                  className="h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.7"
-                >
-                  <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z" />
-                </svg>
-              </div>
-
-              <div>
-                <h4 className="font-bold text-[#2A1625]">
-                Build Lasting Connections
-
-                </h4>
-                <p className="mt-1 text-sm leading-6 text-[#2A1625]/60">
-                     Learn the value of trust, empathy, and communication.
-                </p>
-              </div>
-            </div>
+            ))}
 
           </div>
 
-          {/* Bottom Note */}
-          <div className="mt-9 border-t border-[#2A1625]/10 pt-6">
-            <p className="flex items-center gap-2 text-xs font-medium text-[#2A1625]/60">
-              <svg
-                className="h-4 w-4 text-[#9E4770]"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="m5 12 4 4L19 6" />
-              </svg>
-             A 2-hour live webinar to understand relationships from a new perspective.
-            </p>
-          </div>
+          <p className="mt-7 border-t border-[#2A1625]/10 pt-5 font-serif text-base italic text-[#9E4770]">
+            Because love deserves understanding.
+          </p>
+
         </div>
 
-        {/* RIGHT: PREMIUM PRICE CARD */}
-        <div className="relative flex flex-col items-center justify-center overflow-hidden bg-[#2A1625] p-8 text-center text-white sm:p-10 md:p-9 lg:p-12">
 
-          {/* Decorative Glow */}
-          <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#9E4770]/30 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-[#F3C973]/15 blur-3xl" />
+        {/* RIGHT PRICE CARD */}
+        <div className="relative flex flex-col items-center justify-center overflow-hidden bg-[#2A1625] p-7 text-center text-white sm:p-10">
 
-          {/* Decorative Circles */}
-          <div className="pointer-events-none absolute right-7 top-7 h-16 w-16 rounded-full border border-[#F3C973]/20" />
-          <div className="pointer-events-none absolute right-11 top-11 h-8 w-8 rounded-full border border-[#F3C973]/30" />
+          <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#9E4770]/30 blur-3xl" />
 
           <div className="relative z-10 w-full">
 
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#F3C973]/30 bg-[#F3C973]/10 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#F3C973]">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#F3C973]" />
-              LIVE RELATIONSHIP WEBINAR
+            <span className="inline-flex rounded-full border border-[#F3C973]/30 bg-[#F3C973]/10 px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-[#F3C973]">
+              ✦ EXCLUSIVE SESSION OFFER
             </span>
 
-            <p className="mt-8 text-sm font-medium text-white/65">
-              Your Webinar Pass
-            </p>
+            <h3 className="mt-7 font-serif text-2xl font-bold">
+              Invest 3 Hours
+              <span className="block text-[#F3C973]">
+                In Your Relationships
+              </span>
+            </h3>
 
-            {/* Price */}
-            <div className="mt-3 flex items-center justify-center gap-3">
-              <span className="font-serif text-6xl font-bold tracking-tight text-[#F3C973] sm:text-7xl">
+            <div className="mx-auto mt-6 inline-flex items-center gap-2 rounded-lg bg-white/10 px-4 py-3">
+              ⏰
+              <span className="text-xs font-bold">
+                3-HOUR LIVE ONLINE SESSION
+              </span>
+            </div>
+
+            {/* PRICE */}
+            <div className="mt-7 flex items-center justify-center gap-3">
+
+              <span className="font-serif text-6xl font-bold text-[#F3C973]">
                 ₹99
               </span>
 
               <div className="text-left">
-                <p className="text-sm text-white/45 line-through">
+                <p className="text-sm text-white/50 line-through">
                   ₹3,000
                 </p>
-                <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-[#F3C973]">
+                <p className="text-[10px] font-bold uppercase text-[#F3C973]">
                   Special Price
                 </p>
               </div>
+
             </div>
 
-            {/* Offer Highlight */}
-            <div className="mx-auto mt-5 inline-flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2.5">
-              <svg
-                className="h-4 w-4 text-[#F3C973]"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z" />
-              </svg>
-
-              <span className="text-xs font-semibold text-white">
-                Save ₹2901
+            {/* SAVINGS */}
+            <div className="mt-4 inline-flex rounded-lg bg-white/10 px-4 py-2.5">
+              <span className="text-xs font-bold text-white">
+                🎉 Save ₹2,901 · 96.7% OFF
               </span>
             </div>
 
-            <p className="mx-auto mt-5 max-w-xs text-sm leading-6 text-white/60">
-             Discover why couples fight, why love changes after marriage, and how to build a deeper emotional connection—for just ₹99.
+            <p className="mx-auto mt-6 max-w-xs text-sm leading-6 text-white/65">
+              Take the first step towards understanding
+              yourself and your relationships.
             </p>
 
-            {/* CTA Button */}
+            {/* CTA */}
             <a
               href="/register"
-              className="group mt-8 flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-[#F3C973] to-[#E7B84F] px-5 py-4 text-sm font-extrabold text-[#2A1625] shadow-[0_8px_30px_rgba(243,201,115,0.2)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(243,201,115,0.35)] focus:outline-none focus:ring-4 focus:ring-[#F3C973]/40"
+              className="group mt-7 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#F3C973] to-[#E7B84F] px-5 py-4 text-sm font-bold text-[#2A1625] shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
-             Save My Seat for ₹99
+              Join the Session for ₹99
 
-              <svg
-                className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
+              <span className="text-lg transition-transform group-hover:translate-x-1">
+                →
+              </span>
             </a>
 
-            {/* Secure Payment */}
-            <div className="mt-5 flex items-center justify-center gap-2 text-[11px] text-white/55">
-              <svg
-                className="h-4 w-4 text-[#F3C973]"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-              >
-                <rect x="4" y="10" width="16" height="11" rx="2" />
-                <path d="M8 10V7a4 4 0 0 1 8 0v3" />
-              </svg>
-
-              Secure Registration
-            </div>
-
-            {/* Offer Footer */}
-            <div className="mt-8 border-t border-white/10 pt-6">
-              <p className="text-xs leading-6 text-white/55">
-              Understand each other. Communicate better. Grow together.
-              </p>
-
-              <p className="mt-2 font-serif text-sm italic text-[#F3C973]">
-                Because love deserves understanding. </p>
-            </div>
+            <p className="mt-4 text-[11px] text-white/50">
+              🔒 Secure Registration
+            </p>
 
           </div>
+
         </div>
+
       </div>
-    </div>
-
-    {/* Bottom Trust Points */}
-    <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs font-medium text-[#2A1625]/60">
-      <span className="flex items-center gap-2">
-        <span className="text-[#9E4770]">✦</span>
-     Understand Your Partner
-      </span>
-
-      <span className="flex items-center gap-2">
-        <span className="text-[#9E4770]">✦</span>
-        Better Communication
-      </span>
-
-      <span className="flex items-center gap-2">
-        <span className="text-[#9E4770]">✦</span>
-         Deeper Emotional Connection
-      </span>
     </div>
 
   </div>
 </section>
+
+
 
 {/* PREMIUM FOOTER */}
 <footer className="relative overflow-hidden bg-[#402439] text-white">
@@ -1245,7 +1276,7 @@ export default function App() {
       {/* COPYRIGHT & SOCKET DESIGN */}
       <div className="text-sm leading-6 flex flex-col items-center md:items-start">
         <p className="text-white/65">
-          © {new Date().getFullYear()} Holistic Therapist Gayathri
+          © {new Date().getFullYear()} Kavitha Ganeshraja
         </p>
         <p className="text-white/45">
           All rights reserved.
@@ -1308,6 +1339,90 @@ export default function App() {
 
 
 
+{/* ANIMATED FLOATING CONTACT BUTTONS */}
+<div className="fixed right-3 bottom-20 md:right-5 md:bottom-7 z-[9999] flex flex-col gap-3 md:gap-5">
+
+  {/* CALL BUTTON */}
+  <a
+    href="tel:+919876543210"
+    aria-label="Call us"
+    className="group relative flex h-12 w-12 md:h-16 md:w-16 sm:h-14 sm:w-14
+      items-center justify-center rounded-full
+      bg-gradient-to-br from-[#B85B85] to-[#803458]
+      text-white shadow-xl
+      transition-all duration-300
+      hover:scale-110 hover:shadow-2xl
+      motion-safe:animate-bounce"
+  >
+    {/* PULSE RING */}
+    <span className="absolute inset-0 rounded-full border-2 border-[#9E4770] animate-ping opacity-30" />
+
+    {/* CALL ICON */}
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="relative z-10 h-6 w-6 md:h-8 md:w-8 transition-transform duration-300 group-hover:rotate-12"
+    >
+      <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.02z" />
+    </svg>
+
+    {/* TOOLTIP */}
+    <span className="absolute right-[60px] md:right-[78px] whitespace-nowrap
+      rounded-lg bg-[#2A1625] px-3 py-2
+      text-xs font-semibold text-white
+      opacity-0 translate-x-2 pointer-events-none
+      transition-all duration-300
+      group-hover:opacity-100 group-hover:translate-x-0">
+      Call Us Now
+    </span>
+  </a>
+
+
+  {/* WHATSAPP BUTTON */}
+  <a
+    href="https://wa.me/919876543210"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat with us on WhatsApp"
+    className="group relative flex h-12 w-12 md:h-16 md:w-16 sm:h-14 sm:w-14
+      items-center justify-center rounded-full
+      bg-gradient-to-br from-[#32E875] to-[#0B9F50]
+      text-white shadow-xl
+      transition-all duration-300
+      hover:scale-110 hover:shadow-2xl
+      motion-safe:animate-bounce"
+  >
+    {/* PULSE RING */}
+    <span className="absolute inset-0 rounded-full border-2 border-[#25D366] animate-ping opacity-30" />
+
+    {/* WHATSAPP ICON */}
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="relative z-10 h-7 w-7 md:h-9 md:w-9 transition-transform duration-300 group-hover:rotate-12"
+    >
+      <path d="M20.52 3.48A11.87 11.87 0 0012.04 0C5.48 0 .14 5.34.14 11.9c0 2.1.55 4.15 1.6 5.96L0 24l6.3-1.65a11.9 11.9 0 005.73 1.46h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.42-8.43zM12.04 21.8a9.9 9.9 0 01-5.04-1.38l-.36-.21-3.74.98 1-3.65-.24-.38a9.87 9.87 0 01-1.52-5.26c0-5.46 4.45-9.9 9.91-9.9a9.83 9.83 0 017 2.9 9.83 9.83 0 012.9 7c0 5.46-4.45 9.9-9.91 9.9zm5.43-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.67-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.31 1.26.5 1.69.64.71.23 1.35.2 1.86.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z" />
+    </svg>
+
+    {/* TOOLTIP */}
+    <span className="absolute right-[60px] md:right-[78px] whitespace-nowrap
+      rounded-lg bg-[#2A1625] px-3 py-2
+      text-xs font-semibold text-white
+      opacity-0 translate-x-2 pointer-events-none
+      transition-all duration-300
+      group-hover:opacity-100 group-hover:translate-x-0">
+      Chat on WhatsApp
+    </span>
+  </a>
+
+</div>
+
+
+
+
+
 
       {/* MOBILE STICKY BOTTOM BAR */}
       <div className="fixed bottom-0 left-0 right-0 z-50 bg-white p-4 border-t border-[#2A1625]/10 flex items-center justify-between md:hidden shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
@@ -1326,6 +1441,8 @@ export default function App() {
           Claim Seat ↗
         </a>
       </div>
+       <WorkshopPopup />
     </div>
+    
   );
 }
