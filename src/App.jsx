@@ -137,7 +137,7 @@ export default function App() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          amount: 99,
+          amount: 1,
         }),
       }
     );
