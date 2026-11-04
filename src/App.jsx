@@ -37,7 +37,22 @@ const reviews = [
   },
 ];
 
+const loadRazorpayScript = () => {
+  return new Promise((resolve) => {
+    if (window.Razorpay) {
+      resolve(true);
+      return;
+    }
 
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+
+    script.onload = () => resolve(true);
+    script.onerror = () => resolve(false);
+
+    document.body.appendChild(script);
+  });
+};
 // --- Smooth Counter Component ---
 const AnimatedNumber = ({ value, suffix, isFloat }) => {
   const [count, setCount] = useState(0);
@@ -77,7 +92,7 @@ const AnimatedNumber = ({ value, suffix, isFloat }) => {
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const [isPaying, setIsPaying] = useState(false);
   // --- 1. Separate Video (Reels) State ---
   const [videoIndex, setVideoIndex] = useState(0);
   const [videoPaused, setVideoPaused] = useState(false);
@@ -97,6 +112,116 @@ export default function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+
+
+  const handlePayment = async () => {
+  if (isPaying) return;
+
+  try {
+    setIsPaying(true);
+
+    // Load Razorpay checkout
+    const loaded = await loadRazorpayScript();
+
+    if (!loaded) {
+      alert("Unable to load payment gateway");
+      return;
+    }
+
+    // Create Razorpay order through VPS backend
+    const orderResponse = await fetch(
+      `${import.meta.env.VITE_API_BASE_URL}/api/payment/create-order`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          amount: 99,
+        }),
+      }
+    );
+
+    const orderData = await orderResponse.json();
+
+    if (!orderResponse.ok || !orderData.success) {
+      throw new Error(orderData.message || "Order creation failed");
+    }
+
+    // Razorpay checkout options
+    const options = {
+      key: orderData.key,
+      amount: orderData.amount,
+      currency: "INR",
+      name: "Kavitha Ganeshraja",
+      description: "3-Hour Relationship Session",
+      order_id: orderData.orderId,
+
+      theme: {
+        color: "#9E4770",
+      },
+
+      handler: async function (response) {
+        try {
+          // Verify payment through backend
+          const verifyResponse = await fetch(
+            `${import.meta.env.VITE_API_BASE_URL}/api/payment/verify`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+              }),
+            }
+          );
+
+          const verifyData = await verifyResponse.json();
+
+          if (verifyResponse.ok && verifyData.success) {
+            alert("Payment successful! Registration confirmed.");
+
+            // TODO: Save registration details in your database.
+            // Only mark the registration as paid after verification.
+
+            window.location.href = "/success";
+          } else {
+            alert("Payment verification failed");
+          }
+        } catch (error) {
+          console.error("Verification error:", error);
+          alert("Unable to verify payment");
+        } finally {
+          setIsPaying(false);
+        }
+      },
+
+      modal: {
+        ondismiss: () => {
+          setIsPaying(false);
+        },
+      },
+    };
+
+    const razorpay = new window.Razorpay(options);
+
+    razorpay.on("payment.failed", (response) => {
+      console.error(response.error);
+      alert("Payment failed. Please try again.");
+      setIsPaying(false);
+    });
+
+    razorpay.open();
+
+  } catch (error) {
+    console.error("Payment error:", error);
+    alert(error.message || "Payment initialization failed");
+    setIsPaying(false);
+  }
+};
   // --- Responsive Slides Logic ---
   useEffect(() => {
     const updateSlides = () => {
@@ -176,7 +301,8 @@ export default function App() {
 
     {/* JOIN BUTTON */}
     <a
-      href="#register"
+       onClick={handlePayment}
+  disabled={isPaying}
       className="px-3.5 sm:px-5 md:px-7
         py-2.5 md:py-3
         rounded-full bg-[#9E4770]
@@ -187,7 +313,7 @@ export default function App() {
         transition-all duration-300
         shadow-lg"
     >
-      Join Now – ₹99
+     {isPaying ? "Processing..." : "  Join Now – ₹99"}
     </a>
 
   </div>
@@ -458,7 +584,8 @@ export default function App() {
       <div className="pt-1 w-full sm:w-auto">
 
         <a
-          href="#register"
+          onClick={handlePayment}
+          disabled={isPaying}
           className="group inline-flex
             items-center justify-center
             gap-2.5
@@ -474,8 +601,7 @@ export default function App() {
             shadow-xl
             hover:-translate-y-1"
         >
-
-          Reserve Your Seat for ₹99
+          {isPaying ?"Processing...": "Reserve Your Seat for ₹99"}
 
           <span
             className="text-lg
@@ -716,7 +842,8 @@ export default function App() {
 
   {/* CTA BUTTON */}
   <a
-    href="#register"
+    onClick={handlePayment}
+          disabled={isPaying}
     className="group mt-5 flex min-h-[52px]
       w-full items-center justify-center
       gap-2 rounded-full
@@ -728,7 +855,7 @@ export default function App() {
       hover:bg-[#803458] sm:text-base"
   >
 
-    Reserve Your Seat for ₹99
+{isPaying ?"Processing...": "Reserve Your Seat for ₹99"}
 
     <span className="text-lg transition-transform
       duration-300 group-hover:translate-x-1">
@@ -1223,10 +1350,12 @@ export default function App() {
 
             {/* CTA */}
             <a
-              href="/register"
+             onClick={handlePayment}
+             disabled={isPaying}
               className="group mt-7 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#F3C973] to-[#E7B84F] px-5 py-4 text-sm font-bold text-[#2A1625] shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
-              Join the Session for ₹99
+             
+              {isPaying ? "Processing..." :" Join the Session for ₹99"}
 
               <span className="text-lg transition-transform group-hover:translate-x-1">
                 →
@@ -1288,10 +1417,12 @@ export default function App() {
 
       {/* REGISTER BUTTON */}
       <a
-        href="#register"
+        onClick={handlePayment}
+        disabled ={isPaying}
         className="group inline-flex items-center gap-3 rounded-full border border-[#F3C973]/50 bg-[#F3C973]/10 px-6 py-3 text-sm font-semibold text-[#F3C973] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#F3C973] hover:bg-[#F3C973] hover:text-[#402439] hover:shadow-lg hover:shadow-black/10"
       >
-        Register for ₹99
+       
+        {isPaying ? "Processing..."  :" Join the Session for ₹99"}
         <svg
           className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5"
           viewBox="0 0 24 24"
@@ -1435,10 +1566,12 @@ export default function App() {
           </p>
         </div>
         <a
-          href="#register"
+          onClick={handlePayment}
+        disabled ={isPaying}
           className="px-6 py-3 bg-[#9E4770] text-white font-bold text-sm rounded-lg shadow-md"
         >
-          Claim Seat ↗
+          
+          {isPaying ?"Processing...": "Claim Seat ↗"}
         </a>
       </div>
        <WorkshopPopup />
