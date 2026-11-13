@@ -483,7 +483,7 @@ const startPayment = async () => {
         >
           <div
             className="w-full max-w-[720px]
-        text-left space-y-5 md:space-y-6"
+        text-left space-y-2 md:space-y-3"
           >
             {/* CATEGORY */}
             <div
