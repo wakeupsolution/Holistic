@@ -238,7 +238,7 @@ const startPayment = async () => {
          if (verifyResponse.ok && verifyData.success) {
     alert("Payment successful! Registration confirmed.");
 
-    const phone = "919876543210";
+    const phone = "917871995823";
     const message = encodeURIComponent(
         "Hello! My payment was successful. Please confirm my registration."
     );
