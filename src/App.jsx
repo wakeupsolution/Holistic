@@ -238,12 +238,12 @@ const startPayment = async () => {
          if (verifyResponse.ok && verifyData.success) {
     alert("Payment successful! Registration confirmed.");
 
-    const phone = "919702482525";
-    const message = encodeURIComponent(
-        "Hello! My payment was successful. Please confirm my registration."
-    );
+    // const phone = "919702482525";
+    // const message = encodeURIComponent(
+    //     "Hello! My payment was successful. Please confirm my registration."
+    // );
 
-    window.location.href = `https://wa.me/${phone}?text=${message}`;
+    window.location.href ="https://chat.whatsapp.com/F7rfGHFMQc1E77dlVo9mar";
 } else {
     alert("Payment verification failed");
 }
