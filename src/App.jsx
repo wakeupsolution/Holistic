@@ -235,12 +235,18 @@ const startPayment = async () => {
 
           const verifyData = await verifyResponse.json();
 
-          if (verifyResponse.ok && verifyData.success) {
-            alert("Payment successful! Registration confirmed.");
-            window.location.href = "/success";
-          } else {
-            alert("Payment verification failed");
-          }
+         if (verifyResponse.ok && verifyData.success) {
+    alert("Payment successful! Registration confirmed.");
+
+    const phone = "919876543210";
+    const message = encodeURIComponent(
+        "Hello! My payment was successful. Please confirm my registration."
+    );
+
+    window.location.href = `https://wa.me/${phone}?text=${message}`;
+} else {
+    alert("Payment verification failed");
+}
         } catch (error) {
           console.error("Verification error:", error);
           alert("Unable to verify payment");
