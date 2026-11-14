@@ -238,7 +238,7 @@ const startPayment = async () => {
          if (verifyResponse.ok && verifyData.success) {
     alert("Payment successful! Registration confirmed.");
 
-    const phone = "917871995823";
+    const phone = "919702482525";
     const message = encodeURIComponent(
         "Hello! My payment was successful. Please confirm my registration."
     );
@@ -1526,7 +1526,7 @@ const startPayment = async () => {
       <div className="fixed right-3 bottom-20 md:right-5 md:bottom-7 z-[9999] flex flex-col gap-3 md:gap-5">
         {/* CALL BUTTON */}
         <a
-          href="tel:+919876543210"
+          href="tel:+919702482525"
           aria-label="Call us"
           className="group relative flex h-12 w-12 md:h-16 md:w-16 sm:h-14 sm:w-14
       items-center justify-center rounded-full
@@ -1564,7 +1564,7 @@ const startPayment = async () => {
 
         {/* WHATSAPP BUTTON */}
         <a
-          href="https://wa.me/919876543210"
+          href="https://wa.me/919702482525"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat with us on WhatsApp"
