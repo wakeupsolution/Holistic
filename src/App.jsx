@@ -1071,7 +1071,7 @@ const startPayment = async () => {
                     </p>
 
                     <a
-                      href="#register"
+                     onClick={handlePayment}
                       className="inline-flex items-center justify-center px-7 py-3.5 bg-[#F3C973] hover:bg-white text-[#2A1625] font-bold rounded-full transition-all duration-300 text-sm md:text-base transform group-hover:-translate-y-1 shadow-[0_10px_20px_rgba(243,201,115,0.2)]"
                     >
                       Book for ₹99
